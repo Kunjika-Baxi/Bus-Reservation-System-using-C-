@@ -3,7 +3,7 @@
 #include<math.h>
 #include<stdlib.h>
 #include<string.h>
-char scity[30],des[30];int per,sno[100],total=80;float amt=0;char name[30],cn[12],email[30],uname[30],pass[30],cpass[30];
+char scity[30],des[30];int per,sno[100],total=80;float amt=0;char name[30],cn[12],email[30],uname[30],pass[30],cpass[30],date[30];
 void booking()
 {
     char ans;
@@ -11,7 +11,9 @@ void booking()
     printf("\nEnter Source City : ");
     gets(scity);
     printf("\nEnter Destination : ");
-    gets(des);
+    gets(des);fflush(stdin);
+    printf("\nEnter Date of Travel : ");
+    gets(date);
     printf("\nEnter Total Number of Persons : ");
     scanf("%d",&per);
     printf("\n\nAvailable Bus Timings : %d%d : %d%d",(rand()%1),(rand()%9),(rand()%5),(rand()%9));
@@ -206,6 +208,10 @@ void cancel()
              per=per-nt;
              printf("\n100 Percent Return Policy :- Amount returned :  %d",(500*nt));
              amt=amt-(500*nt);
+            for(int i=0;date[i];i++)
+             {
+                date[i]='\0';
+             }
              printf("\nBooking Cancelled Successfully...\n");
         }
         else 
@@ -221,6 +227,7 @@ void details()
   printf("\nContact Number : %s",cn);
   printf("\nSource City : %s",scity);
   printf("\nDestination : %s",des);
+  printf("\nDate of Travel : %s,date);
   printf("\nTotal Persons : %d",per);
   printf("\nSeat Numbers : ");
   for(int i=0;i<per;i++)
